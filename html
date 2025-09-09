@@ -1,0 +1,174 @@
+<!--
+File: perkenalan_ipb_firman.html
+Deskripsi: Halaman perkenalan diri sebagai mahasiswa Ilmu Komputer / Kecerdasan Buatan IPB University.
+Petunjuk: Ganti semua placeholder (TEKS DALAM KURUNG SUDUT << >>) dengan data kamu sendiri: NAMA LENGKAP, NIM, PROGRAM STUDI, NAMA PROXY, dsb.
+Simpan file ini lalu unggah ke repository GitHub publik. Nama repository: <NAMA_PROXY>_<NIM>_<NAMA>
+-->
+
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Perkenalan - <<NAMA LENGKAP>></title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#7c3aed; --muted:#9aa4b2; --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+    }
+    *{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{margin:0;min-height:100vh;background:linear-gradient(180deg,var(--bg),#071024);color:#e6eef8}
+    header{padding:28px 32px;display:flex;justify-content:space-between;align-items:center}
+    .logo{display:flex;gap:12px;align-items:center}
+    .logo .mark{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700}
+    h1{margin:0;font-size:20px}
+    .container{max-width:980px;margin:20px auto;padding:24px}
+    .profile{display:grid;grid-template-columns:260px 1fr;gap:22px}
+    .card{background:linear-gradient(180deg,var(--card),#07121b);border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+    .avatar{width:100%;height:260px;border-radius:10px;background:linear-gradient(180deg,#111827,#0b1220);display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    .meta{margin-top:12px}
+    .meta h2{margin:0;font-size:18px}
+    .meta p{margin:6px 0;color:var(--muted)}
+    .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+    .chip{background:var(--glass);padding:10px;border-radius:8px;font-size:14px;color:var(--muted);}
+    .bio{padding:16px}
+    .section{margin-top:18px}
+    .skills{display:flex;gap:8px;flex-wrap:wrap}
+    .skill{background:var(--glass-2);padding:8px 10px;border-radius:8px;font-size:13px;color:var(--muted)}
+    .cta{display:flex;gap:8px;margin-top:12px}
+    a.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;text-decoration:none;color:#fff;background:linear-gradient(90deg,var(--accent),#06b6d4)}
+    .links a{display:inline-block;margin-right:8px;color:var(--muted);text-decoration:none}
+    footer{margin-top:22px;color:var(--muted);font-size:13px}
+
+    /* animated background shape */
+    .bg-shape{position:fixed;right:-120px;top:-120px;opacity:0.12;filter:blur(80px);width:420px;height:420px;background:conic-gradient(from 120deg,#7c3aed,#06b6d4,#7c3aed);transform:rotate(20deg);z-index:0}
+
+    /* small responsive */
+    @media(max-width:860px){.profile{grid-template-columns:1fr} .avatar{height:220px}}
+  </style>
+</head>
+<body>
+  <div class="bg-shape" aria-hidden></div>
+  <header>
+    <div class="logo">
+      <div class="mark">AI</div>
+      <div>
+        <h1>Perkenalan Mahasiswa — Ilmu Komputer / Kecerdasan Buatan (IPB University)</h1>
+        <div style="font-size:13px;color:var(--muted)">Halo! Selamat datang di halaman perkenalan.</div>
+      </div>
+    </div>
+    <nav class="links">
+      <a href="#about">Tentang</a>
+      <a href="#study">Studi</a>
+      <a href="#skills">Keahlian</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="profile">
+      <aside class="card">
+        <div class="avatar">
+          <!-- Ganti src berikut dengan foto kamu (relative path atau URL). Jika belum punya, gunakan placeholder.jpg -->
+          <img id="avatarImg" src="https://via.placeholder.com/400x400?text=Foto+Kamu" alt="Foto <<NAMA LENGKAP>>">
+        </div>
+        <div class="meta">
+          <h2><span id="name"><<NAMA LENGKAP>></span></h2>
+          <p id="nim">NIM: &lt;&lt;NIM&gt;&gt;</p>
+          <p id="prodi">Program Studi: Ilmu Komputer / Kecerdasan Buatan</p>
+          <div class="info-grid">
+            <div class="chip">Proksi: &lt;&lt;NAMA PROXY&gt;&gt;</div>
+            <div class="chip">Angkatan: &lt;&lt;ANGKATAN&gt;&gt;</div>
+            <div class="chip">Fakultas: Sekolah Sains Data, Matematika & Informatika</div>
+            <div class="chip">Kampus: IPB University</div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="card bio">
+        <h3 id="about">Tentang Saya</h3>
+        <p>Halo, nama saya <strong id="bioName">&lt;&lt;NAMA LENGKAP&gt;&gt;</strong>. Saya mahasiswa Ilmu Komputer / Kecerdasan Buatan di IPB University. Saya tertarik pada bidang pembelajaran mesin, visi komputer, dan rekayasa perangkat lunak. Di kampus, saya aktif dalam organisasi kemahasiswaan dan proyek-proyek kecil yang berkaitan dengan AI.</p>
+
+        <div class="section" id="study">
+          <h4>Informasi Akademik</h4>
+          <p>- NIM: <span id="bioNim">&lt;&lt;NIM&gt;&gt;</span></p>
+          <p>- Program Studi: <span id="bioProdi">Ilmu Komputer / Kecerdasan Buatan</span></p>
+          <p>- Dosen Wali (contoh): Dr. Nama Dosen</p>
+        </div>
+
+        <div class="section" id="skills">
+          <h4>Keahlian & Tools</h4>
+          <div class="skills">
+            <div class="skill">Python</div>
+            <div class="skill">PyTorch / TensorFlow</div>
+            <div class="skill">Machine Learning</div>
+            <div class="skill">Data Science</div>
+            <div class="skill">Web (HTML/CSS/JS)</div>
+            <div class="skill">Git & GitHub</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>Proyek / Pengalaman Singkat</h4>
+          <ul>
+            <li>Membuat model klasifikasi sederhana untuk dataset contoh.</li>
+            <li>Anggota panitia acara kampus (contoh: MPKMB).</li>
+            <li>Mendevelop website portfolio dan tugas-tugas kampus.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h4 id="contact">Kontak & Tautan</h4>
+          <p>Ganti tautan berikut dengan milikmu:</p>
+          <div class="cta">
+            <a class="btn" id="githubBtn" href="https://github.com/<<USERNAME>>/" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" id="emailBtn" href="mailto:<<EMAIL>>">Email</a>
+          </div>
+          <p style="margin-top:10px;color:var(--muted)">Catatan: Pastikan repository GitHub kamu diatur ke <strong>Public</strong> supaya dosen dapat mengakses file HTML ini.</p>
+        </div>
+
+        <footer>
+          Dibuat dengan ❤️ oleh &lt;&lt;NAMA LENGKAP&gt;&gt;. Halaman ini bersifat contoh — silakan modifikasi sesuka hati.
+        </footer>
+      </section>
+    </div>
+
+    <section class="card" style="margin-top:18px">
+      <h3>Petunjuk: Cara mengunggah ke GitHub & menampilkan (GitHub Pages)</h3>
+      <ol>
+        <li>Buat akun GitHub jika belum punya: https://github.com/</li>
+        <li>Buat repository baru (Settings: Visibility =&gt; <strong>Public</strong>). Nama format: <code>&lt;NAMA_PROXY&gt;_&lt;NIM&gt;_&lt;NAMA&gt;</code>.</li>
+        <li>Di komputer kamu, buka terminal di folder yang berisi file HTML ini, lalu jalankan:<pre style="background:var(--glass);padding:8px;border-radius:6px;margin-top:8px;color:var(--muted)
+">git init
+git add perkenalan_ipb_firman.html
+git commit -m "Add perkenalan HTML"
+git branch -M main
+git remote add origin https://github.com/&lt;&lt;USERNAME&gt;&gt;/&lt;&lt;REPO&gt;&gt;.git
+git push -u origin main</pre></li>
+        <li>Untuk menampilkan langsung sebagai halaman web: buka repository -> Settings -> Pages (atau "Pages & deploys") -> Pilih branch <code>main</code> dan folder <code>/(root)</code>, lalu Save. URL biasanya: <code>https://&lt;USERNAME&gt;.github.io/&lt;REPO&gt;/</code>.</li>
+        <li>Pastikan file bernama <code>index.html</code> jika ingin tampil langsung di root URL. (Jika tidak ingin mengganti nama, buka URL file langsung atau buat index.html yang redirect.)</li>
+      </ol>
+      <p style="color:var(--muted)">Jika kamu mau, saya bisa bantu: menyesuaikan file (mengganti placeholder), membuat index.html yang redirect, atau membuat README singkat untuk repository.</p>
+    </section>
+  </main>
+
+  <script>
+    // Script kecil: isi elemen dengan placeholder yang lebih jelas saat file dibuka,
+    // ganti ini dengan data asli kamu atau hapus script ini jika sudah mengganti manual.
+    (function(){
+      const placeholders = {
+        name: '<<NAMA LENGKAP>>',
+        nim: '<<NIM>>',
+        proxy: '<<NAMA PROXY>>',
+        username: '<<USERNAME>>',
+        email: '<<EMAIL>>'
+      };
+      // Jika user wants quick-demo values (developer convenience), uncomment below:
+      // document.getElementById('name').textContent = 'Muhammad Firman F.';
+      // document.getElementById('nim').textContent = 'NIM: 130xxxxxx';
+      // document.getElementById('githubBtn').href = 'https://github.com/yourusername';
+    })();
+  </script>
+</body>
+</html>
