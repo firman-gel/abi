@@ -13,55 +13,73 @@
       background: #0a0f1c;
       color: #f0f0f0;
     }
-    header {
+
+    /* Hero Section */
+    .hero {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 60px 20px;
+      padding: 60px 10%;
       background: linear-gradient(135deg, #0d1b2a, #1b263b);
     }
-    header img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 4px solid #1e90ff;
-      object-fit: cover;
-      margin-bottom: 20px;
+    .hero-text {
+      max-width: 50%;
     }
-    header h1 {
+    .hero-text h1 {
       font-size: 2.5rem;
-      margin: 10px 0 5px 0;
       font-weight: 700;
       color: #1e90ff;
     }
-    header p {
+    .hero-text p {
       font-size: 1.2rem;
+      margin-top: 10px;
       color: #ddd;
     }
-    section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 30px;
+    .hero img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 5px solid #1e90ff;
+      object-fit: cover;
+    }
+
+    /* Card Section */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 60px 10%;
+    }
+    .card {
       background: #111827;
       border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    }
-    section h2 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      color: #1e90ff;
+      padding: 25px;
       text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+    }
+    .card h2 {
+      color: #1e90ff;
+      margin-bottom: 15px;
+    }
+    .card p, .card li {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
     ul {
       list-style: none;
       padding: 0;
-      line-height: 1.8;
+      margin: 0;
     }
     ul li strong {
       color: #1e90ff;
     }
+
+    /* Social Media */
     .socials {
       text-align: center;
       margin-top: 20px;
@@ -80,6 +98,8 @@
     .socials a:hover {
       background: #0d6efd;
     }
+
+    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
@@ -88,30 +108,48 @@
       margin-top: 40px;
       color: #aaa;
     }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text {
+        max-width: 100%;
+        margin-bottom: 20px;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Abiyyurasyiddhiya Ghulmy Pamungkas</h1>
+      <p>Mahasiswa Kecerdasan Buatan - IPB University</p>
+    </div>
     <img src="foto_abiyyu.jpg" alt="Foto Abiyyurasyiddhiya">
-    <h1>Abiyyurasyiddhiya Ghulmy Pamungkas</h1>
-    <p>Mahasiswa Kecerdasan Buatan - IPB University</p>
-  </header>
-
-  <section>
-    <h2>Biodata</h2>
-    <ul>
-      <li><strong>Nama Lengkap:</strong> Abiyyurasyiddhiya Ghulmy Pamungkas</li>
-      <li><strong>NIM:</strong> M0405241065</li>
-      <li><strong>Program Studi:</strong> Kecerdasan Buatan</li>
-      <li><strong>Proxy/Kelompok:</strong> Euclid</li>
-    </ul>
   </section>
 
-  <section>
-    <h2>Kontak & Sosial Media</h2>
-    <div class="socials">
-      <a href="https://www.instagram.com/abiyyurasyd" target="_blank">Instagram</a>
-      <a href="https://www.linkedin.com/in/abiyyurasyiddhiya-ghulmy-pamungkas-694115324" target="_blank">LinkedIn</a>
+  <!-- Biodata Card -->
+  <section class="cards">
+    <div class="card">
+      <h2>Biodata</h2>
+      <ul>
+        <li><strong>Nama Lengkap:</strong> Abiyyurasyiddhiya Ghulmy Pamungkas</li>
+        <li><strong>NIM:</strong> M0405241065</li>
+        <li><strong>Program Studi:</strong> Kecerdasan Buatan</li>
+        <li><strong>Proxy/Kelompok:</strong> Euclid</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Kontak</h2>
+      <p>Hubungi saya melalui sosial media berikut:</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/abiyyurasyd" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/abiyyurasyiddhiya-ghulmy-pamungkas-694115324" target="_blank">LinkedIn</a>
+      </div>
     </div>
   </section>
 
