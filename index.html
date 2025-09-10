@@ -1,167 +1,378 @@
-<!doctype html>
-<html lang="id">
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Perkenalan - <<NAMA LENGKAP>></title>
+  <title>AI-Powered Design — Blue Theme</title>
+
   <style>
+    /* ========== VARIABLES ========== */
     :root{
-      --bg:#0f1724; --card:#0b1220; --accent:#7c3aed; --muted:#9aa4b2; --glass: rgba(255,255,255,0.04);
+      --bg:#0f0f12;                /* page background (near-black) */
+      --card:#121215;              /* section card bg */
+      --muted:#9aa0a6;            /* muted text */
+      --text:#e9eef6;             /* main text */
+      --accent:#3fa8ff;           /* primary blue accent */
+      --accent-600:#2b8fe6;
+      --glass: rgba(255,255,255,0.03);
+      --radius:16px;
+      --maxw:1100px;
+      --shadow: 0 6px 20px rgba(0,0,0,0.6);
       --glass-2: rgba(255,255,255,0.02);
+      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-    *{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
-    body{margin:0;min-height:100vh;background:linear-gradient(180deg,var(--bg),#071024);color:#e6eef8}
-    header{padding:28px 32px;display:flex;justify-content:space-between;align-items:center}
-    .logo{display:flex;gap:12px;align-items:center}
-    .logo .mark{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700}
-    h1{margin:0;font-size:20px}
-    .container{max-width:980px;margin:20px auto;padding:24px}
-    .profile{display:grid;grid-template-columns:260px 1fr;gap:22px}
-    .card{background:linear-gradient(180deg,var(--card),#07121b);border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
-    .avatar{width:100%;height:260px;border-radius:10px;background:linear-gradient(180deg,#111827,#0b1220);display:flex;align-items:center;justify-content:center;overflow:hidden}
-    .avatar img{width:100%;height:100%;object-fit:cover}
-    .meta{margin-top:12px}
-    .meta h2{margin:0;font-size:18px}
-    .meta p{margin:6px 0;color:var(--muted)}
-    .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
-    .chip{background:var(--glass);padding:10px;border-radius:8px;font-size:14px;color:var(--muted);}
-    .bio{padding:16px}
-    .section{margin-top:18px}
-    .skills{display:flex;gap:8px;flex-wrap:wrap}
-    .skill{background:var(--glass-2);padding:8px 10px;border-radius:8px;font-size:13px;color:var(--muted)}
-    .cta{display:flex;gap:8px;margin-top:12px}
-    a.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;text-decoration:none;color:#fff;background:linear-gradient(90deg,var(--accent),#06b6d4)}
-    .links a{display:inline-block;margin-right:8px;color:var(--muted);text-decoration:none}
-    footer{margin-top:22px;color:var(--muted);font-size:13px}
 
-    /* animated background shape */
-    .bg-shape{position:fixed;right:-120px;top:-120px;opacity:0.12;filter:blur(80px);width:420px;height:420px;background:conic-gradient(from 120deg,#7c3aed,#06b6d4,#7c3aed);transform:rotate(20deg);z-index:0}
+    /* ========== BASE ========== */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,var(--bg),#0b0b0c);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
 
-    /* small responsive */
-    @media(max-width:860px){.profile{grid-template-columns:1fr} .avatar{height:220px}}
+    .wrap{max-width:var(--maxw);margin:40px auto;padding:0 20px;}
+
+    /* ========== HERO ========== */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:44px;
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,0.03);
+      overflow:clip;
+    }
+
+    .hero-left h1{
+      margin:0 0 12px 0;
+      font-size:38px;
+      letter-spacing:-0.6px;
+      line-height:1.02;
+    }
+    .hero-left h1 .accent{ color:var(--accent); }
+    .hero-left p.lead{
+      margin:0 0 18px 0;
+      color:var(--muted);
+      max-width:60ch;
+      font-size:15px;
+    }
+
+    .cta-row{display:flex;gap:12px;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      background:var(--accent);color:#041023;
+      padding:12px 18px;border-radius:12px;border:none;cursor:pointer;font-weight:600;
+      box-shadow: 0 6px 18px rgba(63,168,255,0.18);
+    }
+    .btn.ghost{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);
+      padding:10px 14px;font-weight:600;border-radius:12px;
+    }
+
+    .hero-right{display:flex;justify-content:center;align-items:center}
+    .art{
+      width:100%;
+      max-width:420px;
+      height:320px;
+      border-radius:20px;
+      background-image: url('assets/swirl-blue.png');
+      background-size:cover;
+      background-position:center;
+      box-shadow: 0 12px 40px rgba(31,64,120,0.45);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    /* ========== LOGOS ROW ========== */
+    .brands{display:flex;gap:24px;align-items:center;justify-content:center;padding:26px 0;color:var(--muted)}
+    .brands img{height:28px;opacity:0.85;filter:grayscale(80%);}
+
+    /* ========== FEATURES ========== */
+    .features{
+      display:flex;gap:18px;justify-content:space-between;margin-top:28px;
+    }
+    .feature{
+      flex:1;background:var(--glass);padding:18px;border-radius:14px;border:1px solid var(--glass-2);
+      min-height:110px;
+    }
+    .feature h3{margin:0 0 8px 0;color:var(--text)}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    /* ========== PRICING ========== */
+    .section{margin-top:56px}
+    .section h2{font-size:24px;margin:0 0 10px 0}
+    .toggle{
+      display:inline-flex;align-items:center;background:var(--card);padding:6px;border-radius:999px;border:1px solid rgba(255,255,255,0.03);
+      gap:6px;margin-top:10px;
+    }
+    .toggle button{
+      background:transparent;border:none;color:var(--muted);padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:700;
+    }
+    .toggle button.active{background:linear-gradient(180deg,var(--accent),var(--accent-600)); color:#041023;box-shadow:0 6px 18px rgba(63,168,255,0.14)}
+
+    .pricing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:22px}
+    .card{
+      background:var(--card); padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+      display:flex;flex-direction:column;justify-content:space-between;
+    }
+    .card .price{font-size:22px;font-weight:800;margin:12px 0;color:var(--text)}
+    .card ul{padding-left:18px;margin:12px 0;color:var(--muted)}
+    .card .action{margin-top:12px}
+    .card .action .btn{width:100%}
+
+    /* highlighted center plan */
+    .card.featured{
+      background: linear-gradient(180deg, rgba(63,168,255,0.12), rgba(63,168,255,0.06));
+      border: 1px solid rgba(63,168,255,0.18);
+      transform:translateY(-6px);
+    }
+
+    /* ========== BLOG CARDS ========== */
+    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+    .blog{
+      background:var(--card);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);
+    }
+    .thumb{height:150px;background-size:cover;background-position:center}
+    .blog .body{padding:12px}
+    .tag{font-size:12px;color:var(--muted);margin-bottom:6px}
+    .blog h4{margin:6px 0;color:var(--text)}
+    .meta{font-size:12px;color:var(--muted)}
+
+    /* ========== CTA BANNER ========== */
+    .cta-banner{
+      display:flex;gap:18px;align-items:center;justify-content:space-between;padding:22px;border-radius:14px;margin-top:28px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .cta-banner .left h3{margin:0;font-size:22px}
+    .cta-banner .left p{margin:6px 0 0 0;color:var(--muted)}
+    .cta-banner .right .btn{padding:12px 20px}
+
+    /* ========== FOOTER ========== */
+    footer{margin-top:46px;padding:30px 0;color:var(--muted);text-align:center}
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr 320px}
+      .blog-grid{grid-template-columns:repeat(2,1fr)}
+      .pricing-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:700px){
+      .wrap{margin:18px auto;padding:0 16px}
+      .hero{grid-template-columns:1fr;gap:18px;padding:22px}
+      .hero-right{order:-1}
+      .brands{gap:14px;flex-wrap:wrap}
+      .features{flex-direction:column}
+      .pricing-grid{grid-template-columns:1fr}
+      .blog-grid{grid-template-columns:1fr}
+      .cta-banner{flex-direction:column;align-items:flex-start}
+    }
   </style>
 </head>
 <body>
-  <div class="bg-shape" aria-hidden></div>
-  <header>
-    <div class="logo">
-      <div class="mark">AI</div>
-      <div>
-        <h1>Perkenalan Mahasiswa — Ilmu Komputer / Kecerdasan Buatan (IPB University)</h1>
-        <div style="font-size:13px;color:var(--muted)">Halo! Selamat datang di halaman perkenalan.</div>
+  <div class="wrap">
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero-left">
+        <h1>Your AI-Powered <span class="accent">Design Assistant</span></h1>
+        <p class="lead">Unlock your creative potential. Seamlessly generate, customize, and perfect your designs with cutting-edge AI technology. Fast prototypes, beautiful visuals — all in one place.</p>
+
+        <div class="cta-row">
+          <button class="btn" onclick="onGetStarted()">Get Started</button>
+          <button class="btn ghost" onclick="onTemplates()">More Templates</button>
+        </div>
+
+        <!-- FEATURES under hero -->
+        <div class="features" style="margin-top:20px">
+          <div class="feature">
+            <h3>Upload Brief</h3>
+            <p>Share project details — our AI will grasp your vision and start generating concepts.</p>
+          </div>
+          <div class="feature">
+            <h3>Generate Designs</h3>
+            <p>AI crafts multiple unique designs tailored to your brief and preferences.</p>
+          </div>
+          <div class="feature">
+            <h3>Refine Creation</h3>
+            <p>Polish chosen concepts with easy-to-use editing tools and fine controls.</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <nav class="links">
-      <a href="#about">Tentang</a>
-      <a href="#study">Studi</a>
-      <a href="#skills">Keahlian</a>
-      <a href="#contact">Kontak</a>
-    </nav>
-  </header>
 
-  <main class="container">
-    <div class="profile">
-      <aside class="card">
-        <div class="avatar">
-          <!-- Ganti src berikut dengan foto kamu (relative path atau URL). Jika belum punya, gunakan placeholder.jpg -->
-          <img id="avatarImg" src="https://via.placeholder.com/400x400?text=Foto+Kamu" alt="Foto <<NAMA LENGKAP>>">
-        </div>
-        <div class="meta">
-          <h2><span id="name"><<NAMA LENGKAP>></span></h2>
-          <p id="nim">NIM: &lt;&lt;NIM&gt;&gt;</p>
-          <p id="prodi">Program Studi: Ilmu Komputer / Kecerdasan Buatan</p>
-          <div class="info-grid">
-            <div class="chip">Proksi: &lt;&lt;NAMA PROXY&gt;&gt;</div>
-            <div class="chip">Angkatan: &lt;&lt;ANGKATAN&gt;&gt;</div>
-            <div class="chip">Fakultas: Sekolah Sains Data, Matematika & Informatika</div>
-            <div class="chip">Kampus: IPB University</div>
-          </div>
-        </div>
-      </aside>
-
-      <section class="card bio">
-        <h3 id="about">Tentang Saya</h3>
-        <p>Halo, nama saya <strong id="bioName">&lt;&lt;NAMA LENGKAP&gt;&gt;</strong>. Saya mahasiswa Ilmu Komputer / Kecerdasan Buatan di IPB University. Saya tertarik pada bidang pembelajaran mesin, visi komputer, dan rekayasa perangkat lunak. Di kampus, saya aktif dalam organisasi kemahasiswaan dan proyek-proyek kecil yang berkaitan dengan AI.</p>
-
-        <div class="section" id="study">
-          <h4>Informasi Akademik</h4>
-          <p>- NIM: <span id="bioNim">&lt;&lt;NIM&gt;&gt;</span></p>
-          <p>- Program Studi: <span id="bioProdi">Ilmu Komputer / Kecerdasan Buatan</span></p>
-          <p>- Dosen Wali (contoh): Dr. Nama Dosen</p>
-        </div>
-
-        <div class="section" id="skills">
-          <h4>Keahlian & Tools</h4>
-          <div class="skills">
-            <div class="skill">Python</div>
-            <div class="skill">PyTorch / TensorFlow</div>
-            <div class="skill">Machine Learning</div>
-            <div class="skill">Data Science</div>
-            <div class="skill">Web (HTML/CSS/JS)</div>
-            <div class="skill">Git & GitHub</div>
-          </div>
-        </div>
-
-        <div class="section">
-          <h4>Proyek / Pengalaman Singkat</h4>
-          <ul>
-            <li>Membuat model klasifikasi sederhana untuk dataset contoh.</li>
-            <li>Anggota panitia acara kampus (contoh: MPKMB).</li>
-            <li>Mendevelop website portfolio dan tugas-tugas kampus.</li>
-          </ul>
-        </div>
-
-        <div class="section">
-          <h4 id="contact">Kontak & Tautan</h4>
-          <p>Ganti tautan berikut dengan milikmu:</p>
-          <div class="cta">
-            <a class="btn" id="githubBtn" href="https://github.com/<<USERNAME>>/" target="_blank" rel="noopener">GitHub</a>
-            <a class="btn" id="emailBtn" href="mailto:<<EMAIL>>">Email</a>
-          </div>
-          <p style="margin-top:10px;color:var(--muted)">Catatan: Pastikan repository GitHub kamu diatur ke <strong>Public</strong> supaya dosen dapat mengakses file HTML ini.</p>
-        </div>
-
-        <footer>
-          Dibuat dengan ❤️ oleh &lt;&lt;NAMA LENGKAP&gt;&gt;. Halaman ini bersifat contoh — silakan modifikasi sesuka hati.
-        </footer>
-      </section>
-    </div>
-
-    <section class="card" style="margin-top:18px">
-      <h3>Petunjuk: Cara mengunggah ke GitHub & menampilkan (GitHub Pages)</h3>
-      <ol>
-        <li>Buat akun GitHub jika belum punya: https://github.com/</li>
-        <li>Buat repository baru (Settings: Visibility =&gt; <strong>Public</strong>). Nama format: <code>&lt;NAMA_PROXY&gt;_&lt;NIM&gt;_&lt;NAMA&gt;</code>.</li>
-        <li>Di komputer kamu, buka terminal di folder yang berisi file HTML ini, lalu jalankan:<pre style="background:var(--glass);padding:8px;border-radius:6px;margin-top:8px;color:var(--muted)
-">git init
-git add perkenalan_ipb_firman.html
-git commit -m "Add perkenalan HTML"
-git branch -M main
-git remote add origin https://github.com/&lt;&lt;USERNAME&gt;&gt;/&lt;&lt;REPO&gt;&gt;.git
-git push -u origin main</pre></li>
-        <li>Untuk menampilkan langsung sebagai halaman web: buka repository -> Settings -> Pages (atau "Pages & deploys") -> Pilih branch <code>main</code> dan folder <code>/(root)</code>, lalu Save. URL biasanya: <code>https://&lt;USERNAME&gt;.github.io/&lt;REPO&gt;/</code>.</li>
-        <li>Pastikan file bernama <code>index.html</code> jika ingin tampil langsung di root URL. (Jika tidak ingin mengganti nama, buka URL file langsung atau buat index.html yang redirect.)</li>
-      </ol>
-      <p style="color:var(--muted)">Jika kamu mau, saya bisa bantu: menyesuaikan file (mengganti placeholder), membuat index.html yang redirect, atau membuat README singkat untuk repository.</p>
+      <div class="hero-right" aria-hidden="true">
+        <!-- Replace 'assets/swirl-blue.png' with your artwork -->
+        <div class="art" role="img" aria-label="Decorative swirl art"></div>
+      </div>
     </section>
-  </main>
+
+    <!-- BRANDS -->
+    <div class="brands" aria-hidden="true" style="margin-top:18px">
+      <!-- Replace icons in assets/brands-*.png -->
+      <img src="assets/brand-1.png" alt="brand logo">
+      <img src="assets/brand-2.png" alt="brand logo">
+      <img src="assets/brand-3.png" alt="brand logo">
+      <img src="assets/brand-4.png" alt="brand logo">
+      <img src="assets/brand-5.png" alt="brand logo">
+    </div>
+
+    <!-- PRICING SECTION -->
+    <section class="section" aria-labelledby="pricing-title">
+      <h2 id="pricing-title">Affordable Plans for <span class="accent">Every Need</span></h2>
+
+      <div style="display:flex;align-items:center;gap:16px;justify-content:space-between;flex-wrap:wrap">
+        <p style="color:var(--muted);max-width:70ch;margin:8px 0 0 0">Choose the perfect plan for your design projects, from startups to enterprises. Toggle between monthly and yearly pricing.</p>
+
+        <div class="toggle" role="tablist" aria-label="Billing toggle">
+          <button id="monthlyBtn" class="active" onclick="setBilling('monthly')">Monthly</button>
+          <button id="yearlyBtn" onclick="setBilling('yearly')">Yearly</button>
+        </div>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="card">
+          <div>
+            <div style="color:var(--muted);font-weight:700">FREE</div>
+            <div class="price" id="price-free">$0<span style="font-size:13px;color:var(--muted)">/m</span></div>
+            <ul>
+              <li>Basic AI-generated designs</li>
+              <li>Access to customization tools</li>
+              <li>Standard templates library</li>
+              <li>5 projects per month</li>
+            </ul>
+          </div>
+          <div class="action"><button class="btn ghost">Get Started</button></div>
+        </div>
+
+        <div class="card featured" aria-label="Popular Plan">
+          <div>
+            <div style="color:var(--muted);font-weight:700">BASIC</div>
+            <div class="price" id="price-basic">$14.99<span style="font-size:13px;color:var(--muted)">/m</span></div>
+            <ul>
+              <li>Advanced AI-generated designs</li>
+              <li>Full access to customization</li>
+              <li>Premium templates library</li>
+              <li>Unlimited projects</li>
+              <li>Priority email support</li>
+            </ul>
+          </div>
+          <div class="action"><button class="btn">Get Started</button></div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div style="color:var(--muted);font-weight:700">PRO</div>
+            <div class="price" id="price-pro">$29.99<span style="font-size:13px;color:var(--muted)">/m</span></div>
+            <ul>
+              <li>All features included in Pro Plan</li>
+              <li>Dedicated account manager</li>
+              <li>Onboarding & training sessions</li>
+              <li>Advanced analytics & reporting</li>
+              <li>Secure cloud storage</li>
+            </ul>
+          </div>
+          <div class="action"><button class="btn ghost">Get Started</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG / INSIGHTS -->
+    <section class="section" aria-labelledby="insights-title">
+      <h2 id="insights-title">Stay Inspired with Our Latest <span class="accent">Insights</span></h2>
+      <p style="color:var(--muted);margin-top:8px;max-width:70ch">Dive into our blog for the latest trends, tips, and insights in design and AI. Articles crafted to keep you informed and inspired.</p>
+
+      <div class="blog-grid">
+        <article class="blog">
+          <div class="thumb" style="background-image:url('assets/blog-1.jpg')"></div>
+          <div class="body">
+            <div class="tag">Apr 8, 2022 • 6 min read</div>
+            <h4>Starting and Growing a Career in Web Design</h4>
+            <div class="meta">How to build skills & portfolio</div>
+          </div>
+        </article>
+
+        <article class="blog">
+          <div class="thumb" style="background-image:url('assets/blog-2.jpg')"></div>
+          <div class="body">
+            <div class="tag">Mar 15, 2022 • 5 min read</div>
+            <h4>Create a Landing Page That Performs Great</h4>
+            <div class="meta">Optimization tips from experts</div>
+          </div>
+        </article>
+
+        <article class="blog">
+          <div class="thumb" style="background-image:url('assets/blog-3.jpg')"></div>
+          <div class="body">
+            <div class="tag">Feb 28, 2022 • 7 min read</div>
+            <h4>How Can Designers Prepare for the Future?</h4>
+            <div class="meta">Trends and career guidance</div>
+          </div>
+        </article>
+      </div>
+
+      <div style="text-align:center;margin-top:18px">
+        <button class="btn ghost" onclick="onReadMore()">Read More</button>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" aria-label="Start your design">
+      <div class="cta-banner">
+        <div class="left">
+          <h3>Start Your Design <span class="accent">Journey Today</span></h3>
+          <p>Sign up now and experience the power of AI-driven design with zero commitment.</p>
+        </div>
+        <div class="right">
+          <button class="btn" onclick="onGetStarted()">Get Started</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> AI Design — Built with Blue. &nbsp;•&nbsp; Crafted for modern interfaces.
+    </footer>
+
+  </div>
 
   <script>
-    // Script kecil: isi elemen dengan placeholder yang lebih jelas saat file dibuka,
-    // ganti ini dengan data asli kamu atau hapus script ini jika sudah mengganti manual.
-    (function(){
-      const placeholders = {
-        name: '<<NAMA LENGKAP>>',
-        nim: '<<NIM>>',
-        proxy: '<<NAMA PROXY>>',
-        username: '<<USERNAME>>',
-        email: '<<EMAIL>>'
-      };
-      // Jika user wants quick-demo values (developer convenience), uncomment below:
-      // document.getElementById('name').textContent = 'Muhammad Firman F.';
-      // document.getElementById('nim').textContent = 'NIM: 130xxxxxx';
-      // document.getElementById('githubBtn').href = 'https://github.com/yourusername';
-    })();
+    // Basic interactive behavior: billing toggle switch (monthly/yearly)
+    const monthlyBtn = document.getElementById('monthlyBtn');
+    const yearlyBtn = document.getElementById('yearlyBtn');
+
+    function setBilling(mode){
+      if(mode === 'monthly'){
+        monthlyBtn.classList.add('active');
+        yearlyBtn.classList.remove('active');
+        document.getElementById('price-free').innerHTML = '$0<span style="font-size:13px;color:var(--muted)">/m</span>';
+        document.getElementById('price-basic').innerHTML = '$14.99<span style="font-size:13px;color:var(--muted)">/m</span>';
+        document.getElementById('price-pro').innerHTML = '$29.99<span style="font-size:13px;color:var(--muted)">/m</span>';
+      } else {
+        yearlyBtn.classList.add('active');
+        monthlyBtn.classList.remove('active');
+        // example yearly discount
+        document.getElementById('price-free').innerHTML = '$0<span style="font-size:13px;color:var(--muted)">/y</span>';
+        document.getElementById('price-basic').innerHTML = '$149.99<span style="font-size:13px;color:var(--muted)">/y</span>';
+        document.getElementById('price-pro').innerHTML = '$299.99<span style="font-size:13px;color:var(--muted)">/y</span>';
+      }
+    }
+
+    // small helpers
+    function onGetStarted(){ alert('Get Started clicked — link to sign-up page.'); }
+    function onTemplates(){ alert('More templates — navigate to templates.'); }
+    function onReadMore(){ alert('Navigate to blog list.'); }
+
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // initial billing
+    setBilling('monthly');
   </script>
 </body>
 </html>
