@@ -1,378 +1,311 @@
-<!-- index.html -->
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="id">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AI-Powered Design — Blue Theme</title>
-
+  <title>Perkenalan — Muhammad Firman Fadhlurrahman</title>
   <style>
-    /* ========== VARIABLES ========== */
+    /* ====== Reset & Base ====== */
     :root{
-      --bg:#0f0f12;                /* page background (near-black) */
-      --card:#121215;              /* section card bg */
-      --muted:#9aa0a6;            /* muted text */
-      --text:#e9eef6;             /* main text */
-      --accent:#3fa8ff;           /* primary blue accent */
-      --accent-600:#2b8fe6;
+      --bg:#0b0b0d;
+      --card:#111113;
+      --muted:#9a9aa0;
+      --accent:#ff6b6b;
       --glass: rgba(255,255,255,0.03);
-      --radius:16px;
-      --maxw:1100px;
-      --shadow: 0 6px 20px rgba(0,0,0,0.6);
-      --glass-2: rgba(255,255,255,0.02);
-      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --radius:18px;
+      font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
     }
-
-    /* ========== BASE ========== */
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      background: linear-gradient(180deg,var(--bg),#0b0b0c);
-      color:var(--text);
+      background:linear-gradient(180deg,#050506 0%, #0b0b0d 100%);
+      color:#e8e8ea;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-    }
-
-    .wrap{max-width:var(--maxw);margin:40px auto;padding:0 20px;}
-
-    /* ========== HERO ========== */
-    .hero{
-      display:grid;
-      grid-template-columns: 1fr 420px;
-      gap:28px;
+      padding:36px;
+      display:flex;
       align-items:center;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      padding:44px;
-      border-radius:24px;
-      box-shadow:var(--shadow);
-      border:1px solid rgba(255,255,255,0.03);
-      overflow:clip;
+      justify-content:center;
+      font-size:16px;
     }
 
-    .hero-left h1{
-      margin:0 0 12px 0;
-      font-size:38px;
-      letter-spacing:-0.6px;
-      line-height:1.02;
-    }
-    .hero-left h1 .accent{ color:var(--accent); }
-    .hero-left p.lead{
-      margin:0 0 18px 0;
-      color:var(--muted);
-      max-width:60ch;
-      font-size:15px;
-    }
-
-    .cta-row{display:flex;gap:12px;align-items:center}
-    .btn{
-      display:inline-flex;align-items:center;gap:8px;
-      background:var(--accent);color:#041023;
-      padding:12px 18px;border-radius:12px;border:none;cursor:pointer;font-weight:600;
-      box-shadow: 0 6px 18px rgba(63,168,255,0.18);
-    }
-    .btn.ghost{
-      background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);
-      padding:10px 14px;font-weight:600;border-radius:12px;
-    }
-
-    .hero-right{display:flex;justify-content:center;align-items:center}
-    .art{
+    /* ====== Layout ====== */
+    .container{
+      max-width:980px;
       width:100%;
-      max-width:420px;
-      height:320px;
-      border-radius:20px;
-      background-image: url('assets/swirl-blue.png');
-      background-size:cover;
-      background-position:center;
-      box-shadow: 0 12px 40px rgba(31,64,120,0.45);
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    /* ====== Left column ====== */
+    .card {
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
       border: 1px solid rgba(255,255,255,0.03);
     }
 
-    /* ========== LOGOS ROW ========== */
-    .brands{display:flex;gap:24px;align-items:center;justify-content:center;padding:26px 0;color:var(--muted)}
-    .brands img{height:28px;opacity:0.85;filter:grayscale(80%);}
+    .avatar{
+      width:100%;
+      border-radius:14px;
+      overflow:hidden;
+      background:var(--glass);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px;
+    }
+    .avatar img{ width:100%; height:auto; object-fit:cover; display:block; }
 
-    /* ========== FEATURES ========== */
-    .features{
-      display:flex;gap:18px;justify-content:space-between;margin-top:28px;
-    }
-    .feature{
-      flex:1;background:var(--glass);padding:18px;border-radius:14px;border:1px solid var(--glass-2);
-      min-height:110px;
-    }
-    .feature h3{margin:0 0 8px 0;color:var(--text)}
-    .feature p{margin:0;color:var(--muted);font-size:14px}
+    h1{ margin:12px 0 4px 0; font-size:22px; letter-spacing:0.2px;}
+    .subtitle{ color:var(--muted); margin:0 0 16px 0; font-size:13px;}
 
-    /* ========== PRICING ========== */
-    .section{margin-top:56px}
-    .section h2{font-size:24px;margin:0 0 10px 0}
-    .toggle{
-      display:inline-flex;align-items:center;background:var(--card);padding:6px;border-radius:999px;border:1px solid rgba(255,255,255,0.03);
-      gap:6px;margin-top:10px;
-    }
-    .toggle button{
-      background:transparent;border:none;color:var(--muted);padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:700;
-    }
-    .toggle button.active{background:linear-gradient(180deg,var(--accent),var(--accent-600)); color:#041023;box-shadow:0 6px 18px rgba(63,168,255,0.14)}
-
-    .pricing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:22px}
-    .card{
-      background:var(--card); padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);
-      box-shadow: 0 6px 24px rgba(0,0,0,0.6);
-      display:flex;flex-direction:column;justify-content:space-between;
-    }
-    .card .price{font-size:22px;font-weight:800;margin:12px 0;color:var(--text)}
-    .card ul{padding-left:18px;margin:12px 0;color:var(--muted)}
-    .card .action{margin-top:12px}
-    .card .action .btn{width:100%}
-
-    /* highlighted center plan */
-    .card.featured{
-      background: linear-gradient(180deg, rgba(63,168,255,0.12), rgba(63,168,255,0.06));
-      border: 1px solid rgba(63,168,255,0.18);
-      transform:translateY(-6px);
+    .pill{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:8px 12px;
+      background:rgba(255,255,255,0.02);
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.02);
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:12px;
     }
 
-    /* ========== BLOG CARDS ========== */
-    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
-    .blog{
-      background:var(--card);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);
+    .list {
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
     }
-    .thumb{height:150px;background-size:cover;background-position:center}
-    .blog .body{padding:12px}
-    .tag{font-size:12px;color:var(--muted);margin-bottom:6px}
-    .blog h4{margin:6px 0;color:var(--text)}
-    .meta{font-size:12px;color:var(--muted)}
+    .item{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:12px;
+      background:rgba(255,255,255,0.02);
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.02);
+      font-size:14px;
+    }
+    .item small{ color:var(--muted); }
 
-    /* ========== CTA BANNER ========== */
-    .cta-banner{
-      display:flex;gap:18px;align-items:center;justify-content:space-between;padding:22px;border-radius:14px;margin-top:28px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border:1px solid rgba(255,255,255,0.03);
+    /* ====== Right column ====== */
+    .intro{
+      padding:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      margin-bottom:16px;
+      line-height:1.5;
     }
-    .cta-banner .left h3{margin:0;font-size:22px}
-    .cta-banner .left p{margin:6px 0 0 0;color:var(--muted)}
-    .cta-banner .right .btn{padding:12px 20px}
 
-    /* ========== FOOTER ========== */
-    footer{margin-top:46px;padding:30px 0;color:var(--muted);text-align:center}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:16px;
+    }
 
-    /* ========== RESPONSIVE ========== */
-    @media (max-width:1000px){
-      .hero{grid-template-columns:1fr 320px}
-      .blog-grid{grid-template-columns:repeat(2,1fr)}
-      .pricing-grid{grid-template-columns:1fr 1fr}
+    .section{
+      background:var(--card);
+      padding:16px;
+      border-radius:14px;
+      border: 1px solid rgba(255,255,255,0.02);
+      min-height:120px;
     }
-    @media (max-width:700px){
-      .wrap{margin:18px auto;padding:0 16px}
-      .hero{grid-template-columns:1fr;gap:18px;padding:22px}
-      .hero-right{order:-1}
-      .brands{gap:14px;flex-wrap:wrap}
-      .features{flex-direction:column}
-      .pricing-grid{grid-template-columns:1fr}
-      .blog-grid{grid-template-columns:1fr}
-      .cta-banner{flex-direction:column;align-items:flex-start}
+    .section h3{ margin:0 0 8px 0; font-size:16px; }
+    .section p{ margin:0; color:var(--muted); font-size:14px; }
+
+    .chips{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .chip{
+      padding:8px 10px;
+      background:rgba(255,255,255,0.02);
+      border-radius:10px;
+      font-size:13px;
+      color:var(--muted);
     }
+
+    .footer-row{
+      margin-top:14px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:12px;
+      background:linear-gradient(90deg,var(--accent), #ff9a9a);
+      color:#111;
+      font-weight:600;
+      border:none;
+      cursor:pointer;
+      text-decoration:none;
+    }
+
+    /* ====== Responsive ====== */
+    @media (max-width:860px){
+      .container{ grid-template-columns:1fr; padding:12px; }
+      .grid{ grid-template-columns:1fr; }
+    }
+
+    /* small helper */
+    .muted { color:var(--muted); font-size:13px; }
+    .label { color:var(--muted); font-size:12px; }
+    .contact a{ color:var(--muted); text-decoration:none; }
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <!--
+    Ganti placeholder di bawah:
+    - DATA: nama, nim, program, proxy, kontak, fotoPath
+    - Pastikan file foto (photo.jpg) diupload ke repo di folder yang sama atau ganti path ke URL
+  -->
+  <div class="container">
+    <!-- LEFT -->
+    <div class="card">
+      <div class="avatar" title="Foto Diri">
+        <!-- GANTI src ke foto kamu, contoh: "photo.jpg" atau URL -->
+        <img src="photo.jpg" alt="Foto Diri (ganti dengan foto kamu)" onerror="this.style.opacity=0.06; this.previousSibling && (this.previousSibling.style.display='block')">
+      </div>
 
-    <!-- HERO -->
-    <section class="hero" aria-label="Hero">
-      <div class="hero-left">
-        <h1>Your AI-Powered <span class="accent">Design Assistant</span></h1>
-        <p class="lead">Unlock your creative potential. Seamlessly generate, customize, and perfect your designs with cutting-edge AI technology. Fast prototypes, beautiful visuals — all in one place.</p>
+      <h1 id="fullName">Muhammad Firman Fadhlurrahman</h1>
+      <p class="subtitle" id="tagline">Mahasiswa Ilmu Komputer / Kecerdasan Buatan — IPB University</p>
 
-        <div class="cta-row">
-          <button class="btn" onclick="onGetStarted()">Get Started</button>
-          <button class="btn ghost" onclick="onTemplates()">More Templates</button>
-        </div>
+      <div class="pill">
+        <span class="label">Status</span>
+        <strong style="margin-left:6px">Mahasiswa Aktif • IPB University</strong>
+      </div>
 
-        <!-- FEATURES under hero -->
-        <div class="features" style="margin-top:20px">
-          <div class="feature">
-            <h3>Upload Brief</h3>
-            <p>Share project details — our AI will grasp your vision and start generating concepts.</p>
-          </div>
-          <div class="feature">
-            <h3>Generate Designs</h3>
-            <p>AI crafts multiple unique designs tailored to your brief and preferences.</p>
-          </div>
-          <div class="feature">
-            <h3>Refine Creation</h3>
-            <p>Polish chosen concepts with easy-to-use editing tools and fine controls.</p>
-          </div>
+      <div class="list">
+        <div class="item"><span class="label">NIM</span> <strong id="nim">M040XXXXX</strong></div>
+        <div class="item"><span class="label">Program Studi</span> <strong id="prodi">Kecerdasan Buatan (AI)</strong></div>
+        <div class="item"><span class="label">Fakultas</span> <strong>Fakultas Sekolah Sains Data, Matematika & Informatika</strong></div>
+        <div class="item"><span class="label">Proxy / Kelompok</span> <strong id="proxy">PROXY_NAME</strong></div>
+        <div class="item"><span class="label">Lokasi</span> <small>Bogor, Indonesia</small></div>
+      </div>
+
+      <div style="margin-top:14px" class="muted">
+        <div class="label">Kontak</div>
+        <div class="footer-row contact" style="margin-top:8px">
+          <!-- Ganti link/WA/email sesuai kebutuhan -->
+          <a href="mailto:emailkamu@example.com">emailkamu@example.com</a>
+          <span>•</span>
+          <a href="tel:+628XXXXX">+62 8XX XXX XXXX</a>
         </div>
       </div>
 
-      <div class="hero-right" aria-hidden="true">
-        <!-- Replace 'assets/swirl-blue.png' with your artwork -->
-        <div class="art" role="img" aria-label="Decorative swirl art"></div>
+      <div style="margin-top:14px" class="muted">
+        <div class="label">Sosial</div>
+        <div class="footer-row" style="margin-top:8px">
+          <a href="#" class="label">GitHub</a>
+          <a href="#" class="label">Instagram</a>
+          <a href="#" class="label">LinkedIn</a>
+        </div>
       </div>
-    </section>
-
-    <!-- BRANDS -->
-    <div class="brands" aria-hidden="true" style="margin-top:18px">
-      <!-- Replace icons in assets/brands-*.png -->
-      <img src="assets/brand-1.png" alt="brand logo">
-      <img src="assets/brand-2.png" alt="brand logo">
-      <img src="assets/brand-3.png" alt="brand logo">
-      <img src="assets/brand-4.png" alt="brand logo">
-      <img src="assets/brand-5.png" alt="brand logo">
     </div>
 
-    <!-- PRICING SECTION -->
-    <section class="section" aria-labelledby="pricing-title">
-      <h2 id="pricing-title">Affordable Plans for <span class="accent">Every Need</span></h2>
+    <!-- RIGHT -->
+    <div>
+      <div class="intro card">
+        <p style="margin:0">
+          Hai! Aku <strong id="introName">Muhammad Firman</strong>, mahasiswa Ilmu Komputer / Kecerdasan Buatan di IPB University. Aku tertarik pada pengembangan sistem berbasis AI, pemrograman, serta desain sistem. Saat ini aku aktif di kegiatan organisasi kampus dan sedang memperdalam pemrograman Python, pembelajaran mesin, dan pengembangan web.
+        </p>
+      </div>
 
-      <div style="display:flex;align-items:center;gap:16px;justify-content:space-between;flex-wrap:wrap">
-        <p style="color:var(--muted);max-width:70ch;margin:8px 0 0 0">Choose the perfect plan for your design projects, from startups to enterprises. Toggle between monthly and yearly pricing.</p>
+      <div class="grid">
+        <div class="section">
+          <h3>Keahlian & Tools</h3>
+          <div class="chips">
+            <div class="chip">Python</div>
+            <div class="chip">Machine Learning</div>
+            <div class="chip">Data Science</div>
+            <div class="chip">HTML/CSS/JS</div>
+            <div class="chip">Git & GitHub</div>
+            <div class="chip">PyTorch / TensorFlow</div>
+          </div>
+        </div>
 
-        <div class="toggle" role="tablist" aria-label="Billing toggle">
-          <button id="monthlyBtn" class="active" onclick="setBilling('monthly')">Monthly</button>
-          <button id="yearlyBtn" onclick="setBilling('yearly')">Yearly</button>
+        <div class="section">
+          <h3>Pengalaman Organisasi</h3>
+          <p class="muted">- Pernah menjadi ketua pelaksana lomba antar sekolah.<br>- Pernah menjadi ketua pensi di sekolah.<br>- Aktif dalam kepanitiaan MPKMB IPB (perencanaan & pengelolaan acara).</p>
+        </div>
+
+        <div class="section">
+          <h3>Pendidikan</h3>
+          <p class="muted"><strong>IPB University</strong><br>Program Studi: Kecerdasan Buatan (Ilmu Komputer) — S1 (Aktif)</p>
+        </div>
+
+        <div class="section">
+          <h3>Minat</h3>
+          <p class="muted">AI & Machine Learning, Pengembangan Produk, Musik, Film, Olahraga</p>
         </div>
       </div>
 
-      <div class="pricing-grid">
-        <div class="card">
-          <div>
-            <div style="color:var(--muted);font-weight:700">FREE</div>
-            <div class="price" id="price-free">$0<span style="font-size:13px;color:var(--muted)">/m</span></div>
-            <ul>
-              <li>Basic AI-generated designs</li>
-              <li>Access to customization tools</li>
-              <li>Standard templates library</li>
-              <li>5 projects per month</li>
-            </ul>
-          </div>
-          <div class="action"><button class="btn ghost">Get Started</button></div>
-        </div>
-
-        <div class="card featured" aria-label="Popular Plan">
-          <div>
-            <div style="color:var(--muted);font-weight:700">BASIC</div>
-            <div class="price" id="price-basic">$14.99<span style="font-size:13px;color:var(--muted)">/m</span></div>
-            <ul>
-              <li>Advanced AI-generated designs</li>
-              <li>Full access to customization</li>
-              <li>Premium templates library</li>
-              <li>Unlimited projects</li>
-              <li>Priority email support</li>
-            </ul>
-          </div>
-          <div class="action"><button class="btn">Get Started</button></div>
-        </div>
-
-        <div class="card">
-          <div>
-            <div style="color:var(--muted);font-weight:700">PRO</div>
-            <div class="price" id="price-pro">$29.99<span style="font-size:13px;color:var(--muted)">/m</span></div>
-            <ul>
-              <li>All features included in Pro Plan</li>
-              <li>Dedicated account manager</li>
-              <li>Onboarding & training sessions</li>
-              <li>Advanced analytics & reporting</li>
-              <li>Secure cloud storage</li>
-            </ul>
-          </div>
-          <div class="action"><button class="btn ghost">Get Started</button></div>
+      <div style="margin-top:16px" class="card section">
+        <h3>Portofolio & Files</h3>
+        <p class="muted">Repository ini: <code id="repoExample">PROXY_NIM_Nama</code></p>
+        <div style="margin-top:10px" class="footer-row">
+          <a class="btn" href="#" id="downloadBtn" onclick="openRepo()">Lihat Repository</a>
+          <a class="btn" href="#" style="opacity:0.9" onclick="openGitHubPages()">Buka Halaman (GitHub Pages)</a>
         </div>
       </div>
-    </section>
 
-    <!-- BLOG / INSIGHTS -->
-    <section class="section" aria-labelledby="insights-title">
-      <h2 id="insights-title">Stay Inspired with Our Latest <span class="accent">Insights</span></h2>
-      <p style="color:var(--muted);margin-top:8px;max-width:70ch">Dive into our blog for the latest trends, tips, and insights in design and AI. Articles crafted to keep you informed and inspired.</p>
-
-      <div class="blog-grid">
-        <article class="blog">
-          <div class="thumb" style="background-image:url('assets/blog-1.jpg')"></div>
-          <div class="body">
-            <div class="tag">Apr 8, 2022 • 6 min read</div>
-            <h4>Starting and Growing a Career in Web Design</h4>
-            <div class="meta">How to build skills & portfolio</div>
-          </div>
-        </article>
-
-        <article class="blog">
-          <div class="thumb" style="background-image:url('assets/blog-2.jpg')"></div>
-          <div class="body">
-            <div class="tag">Mar 15, 2022 • 5 min read</div>
-            <h4>Create a Landing Page That Performs Great</h4>
-            <div class="meta">Optimization tips from experts</div>
-          </div>
-        </article>
-
-        <article class="blog">
-          <div class="thumb" style="background-image:url('assets/blog-3.jpg')"></div>
-          <div class="body">
-            <div class="tag">Feb 28, 2022 • 7 min read</div>
-            <h4>How Can Designers Prepare for the Future?</h4>
-            <div class="meta">Trends and career guidance</div>
-          </div>
-        </article>
-      </div>
-
-      <div style="text-align:center;margin-top:18px">
-        <button class="btn ghost" onclick="onReadMore()">Read More</button>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="section" aria-label="Start your design">
-      <div class="cta-banner">
-        <div class="left">
-          <h3>Start Your Design <span class="accent">Journey Today</span></h3>
-          <p>Sign up now and experience the power of AI-driven design with zero commitment.</p>
+      <div style="margin-top:12px; display:flex; gap:12px;">
+        <div class="card" style="flex:1;">
+          <h3>Tips Upload</h3>
+          <p class="muted" style="font-size:13px; margin-top:8px">1) Ganti placeholder (NIM / PROXY / foto) → 2) Buat repo public di GitHub → 3) Upload file ini sebagai <code>index.html</code>.</p>
         </div>
-        <div class="right">
-          <button class="btn" onclick="onGetStarted()">Get Started</button>
+
+        <div class="card" style="width:220px;">
+          <h3>Catatan</h3>
+          <p class="muted" style="font-size:13px; margin-top:8px">File ini responsif & mudah disesuaikan. Edit teks langsung di file atau buka di VS Code.</p>
         </div>
       </div>
-    </section>
-
-    <footer>
-      © <span id="year"></span> AI Design — Built with Blue. &nbsp;•&nbsp; Crafted for modern interfaces.
-    </footer>
-
+    </div>
   </div>
 
   <script>
-    // Basic interactive behavior: billing toggle switch (monthly/yearly)
-    const monthlyBtn = document.getElementById('monthlyBtn');
-    const yearlyBtn = document.getElementById('yearlyBtn');
+    // ====== Ganti data di sini jika ingin set otomatis setelah upload ======
+    const data = {
+      fullName: "Muhammad Firman Fadhlurrahman",
+      nim: "M04XXXXXXX",               // GANTI dengan NIM kamu
+      prodi: "Kecerdasan Buatan (AI)",
+      proxy: "EUCLID",                 // GANTI dengan nama proxy / kelompokmu
+      repoName: "EUCLID_M04XXXXXXX_MuhammadFirmanFadhlurrahman", // contoh format repo
+      repoURL: "https://github.com/PROXY/PROXY_M04XXXXXXX_MuhammadFirmanFadhlurrahman" // GANTI nanti
+    };
 
-    function setBilling(mode){
-      if(mode === 'monthly'){
-        monthlyBtn.classList.add('active');
-        yearlyBtn.classList.remove('active');
-        document.getElementById('price-free').innerHTML = '$0<span style="font-size:13px;color:var(--muted)">/m</span>';
-        document.getElementById('price-basic').innerHTML = '$14.99<span style="font-size:13px;color:var(--muted)">/m</span>';
-        document.getElementById('price-pro').innerHTML = '$29.99<span style="font-size:13px;color:var(--muted)">/m</span>';
-      } else {
-        yearlyBtn.classList.add('active');
-        monthlyBtn.classList.remove('active');
-        // example yearly discount
-        document.getElementById('price-free').innerHTML = '$0<span style="font-size:13px;color:var(--muted)">/y</span>';
-        document.getElementById('price-basic').innerHTML = '$149.99<span style="font-size:13px;color:var(--muted)">/y</span>';
-        document.getElementById('price-pro').innerHTML = '$299.99<span style="font-size:13px;color:var(--muted)">/y</span>';
-      }
+    document.getElementById('fullName').textContent = data.fullName;
+    document.getElementById('nim').textContent = data.nim;
+    document.getElementById('prodi').textContent = data.prodi;
+    document.getElementById('proxy').textContent = data.proxy;
+    document.getElementById('repoExample').textContent = data.repoName;
+
+    function openRepo(){
+      const url = data.repoURL || "#";
+      if(url === "#" || url.includes("PROXY")) alert("Ganti 'data.repoURL' di script dengan URL repository GitHub-mu.");
+      else window.open(url,"_blank");
     }
-
-    // small helpers
-    function onGetStarted(){ alert('Get Started clicked — link to sign-up page.'); }
-    function onTemplates(){ alert('More templates — navigate to templates.'); }
-    function onReadMore(){ alert('Navigate to blog list.'); }
-
-    // set year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // initial billing
-    setBilling('monthly');
+    function openGitHubPages(){
+      // Jika ingin pakai GitHub Pages, biasanya: https://username.github.io/repo-name
+      const username = data.repoURL.split("github.com/")[1]?.split("/")[0];
+      const repo = data.repoURL.split("github.com/")[1]?.split("/")[1];
+      if(!username || !repo || data.repoURL.includes("PROXY")){
+        alert("Jika ingin GitHub Pages: isi data.repoURL di script -> lalu link akan otomatis terbentuk.\nAtau akses: https://username.github.io/repo-name");
+        return;
+      }
+      const ghurl = `https://${username}.github.io/${repo}/`;
+      window.open(ghurl,"_blank");
+    }
   </script>
 </body>
 </html>
