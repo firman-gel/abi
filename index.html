@@ -1,160 +1,378 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perkenalan - Abiyyurasyiddhiya</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI-Powered Design — Blue Theme</title>
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #0a0f1c;
-      color: #f0f0f0;
+    /* ========== VARIABLES ========== */
+    :root{
+      --bg:#0f0f12;                /* page background (near-black) */
+      --card:#121215;              /* section card bg */
+      --muted:#9aa0a6;            /* muted text */
+      --text:#e9eef6;             /* main text */
+      --accent:#3fa8ff;           /* primary blue accent */
+      --accent-600:#2b8fe6;
+      --glass: rgba(255,255,255,0.03);
+      --radius:16px;
+      --maxw:1100px;
+      --shadow: 0 6px 20px rgba(0,0,0,0.6);
+      --glass-2: rgba(255,255,255,0.02);
+      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
 
-    /* Hero Section */
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 60px 10%;
-      background: linear-gradient(135deg, #0d1b2a, #1b263b);
-    }
-    .hero-text {
-      max-width: 50%;
-    }
-    .hero-text h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #1e90ff;
-    }
-    .hero-text p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-      color: #ddd;
-    }
-    .hero img {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      border: 5px solid #1e90ff;
-      object-fit: cover;
+    /* ========== BASE ========== */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,var(--bg),#0b0b0c);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
     }
 
-    /* Card Section */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 60px 10%;
-    }
-    .card {
-      background: #111827;
-      border-radius: 16px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-    }
-    .card h2 {
-      color: #1e90ff;
-      margin-bottom: 15px;
-    }
-    .card p, .card li {
-      color: #ccc;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    ul li strong {
-      color: #1e90ff;
+    .wrap{max-width:var(--maxw);margin:40px auto;padding:0 20px;}
+
+    /* ========== HERO ========== */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:44px;
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,0.03);
+      overflow:clip;
     }
 
-    /* Social Media */
-    .socials {
-      text-align: center;
-      margin-top: 20px;
+    .hero-left h1{
+      margin:0 0 12px 0;
+      font-size:38px;
+      letter-spacing:-0.6px;
+      line-height:1.02;
     }
-    .socials a {
-      display: inline-block;
-      margin: 8px;
-      padding: 10px 20px;
-      border-radius: 8px;
-      background: #1e90ff;
-      color: white;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .socials a:hover {
-      background: #0d6efd;
+    .hero-left h1 .accent{ color:var(--accent); }
+    .hero-left p.lead{
+      margin:0 0 18px 0;
+      color:var(--muted);
+      max-width:60ch;
+      font-size:15px;
     }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #0d1b2a;
-      font-size: 0.9rem;
-      margin-top: 40px;
-      color: #aaa;
+    .cta-row{display:flex;gap:12px;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      background:var(--accent);color:#041023;
+      padding:12px 18px;border-radius:12px;border:none;cursor:pointer;font-weight:600;
+      box-shadow: 0 6px 18px rgba(63,168,255,0.18);
+    }
+    .btn.ghost{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);
+      padding:10px 14px;font-weight:600;border-radius:12px;
     }
 
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-      .hero-text {
-        max-width: 100%;
-        margin-bottom: 20px;
-      }
+    .hero-right{display:flex;justify-content:center;align-items:center}
+    .art{
+      width:100%;
+      max-width:420px;
+      height:320px;
+      border-radius:20px;
+      background-image: url('assets/swirl-blue.png');
+      background-size:cover;
+      background-position:center;
+      box-shadow: 0 12px 40px rgba(31,64,120,0.45);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    /* ========== LOGOS ROW ========== */
+    .brands{display:flex;gap:24px;align-items:center;justify-content:center;padding:26px 0;color:var(--muted)}
+    .brands img{height:28px;opacity:0.85;filter:grayscale(80%);}
+
+    /* ========== FEATURES ========== */
+    .features{
+      display:flex;gap:18px;justify-content:space-between;margin-top:28px;
+    }
+    .feature{
+      flex:1;background:var(--glass);padding:18px;border-radius:14px;border:1px solid var(--glass-2);
+      min-height:110px;
+    }
+    .feature h3{margin:0 0 8px 0;color:var(--text)}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    /* ========== PRICING ========== */
+    .section{margin-top:56px}
+    .section h2{font-size:24px;margin:0 0 10px 0}
+    .toggle{
+      display:inline-flex;align-items:center;background:var(--card);padding:6px;border-radius:999px;border:1px solid rgba(255,255,255,0.03);
+      gap:6px;margin-top:10px;
+    }
+    .toggle button{
+      background:transparent;border:none;color:var(--muted);padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:700;
+    }
+    .toggle button.active{background:linear-gradient(180deg,var(--accent),var(--accent-600)); color:#041023;box-shadow:0 6px 18px rgba(63,168,255,0.14)}
+
+    .pricing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:22px}
+    .card{
+      background:var(--card); padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+      display:flex;flex-direction:column;justify-content:space-between;
+    }
+    .card .price{font-size:22px;font-weight:800;margin:12px 0;color:var(--text)}
+    .card ul{padding-left:18px;margin:12px 0;color:var(--muted)}
+    .card .action{margin-top:12px}
+    .card .action .btn{width:100%}
+
+    /* highlighted center plan */
+    .card.featured{
+      background: linear-gradient(180deg, rgba(63,168,255,0.12), rgba(63,168,255,0.06));
+      border: 1px solid rgba(63,168,255,0.18);
+      transform:translateY(-6px);
+    }
+
+    /* ========== BLOG CARDS ========== */
+    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+    .blog{
+      background:var(--card);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);
+    }
+    .thumb{height:150px;background-size:cover;background-position:center}
+    .blog .body{padding:12px}
+    .tag{font-size:12px;color:var(--muted);margin-bottom:6px}
+    .blog h4{margin:6px 0;color:var(--text)}
+    .meta{font-size:12px;color:var(--muted)}
+
+    /* ========== CTA BANNER ========== */
+    .cta-banner{
+      display:flex;gap:18px;align-items:center;justify-content:space-between;padding:22px;border-radius:14px;margin-top:28px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .cta-banner .left h3{margin:0;font-size:22px}
+    .cta-banner .left p{margin:6px 0 0 0;color:var(--muted)}
+    .cta-banner .right .btn{padding:12px 20px}
+
+    /* ========== FOOTER ========== */
+    footer{margin-top:46px;padding:30px 0;color:var(--muted);text-align:center}
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr 320px}
+      .blog-grid{grid-template-columns:repeat(2,1fr)}
+      .pricing-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:700px){
+      .wrap{margin:18px auto;padding:0 16px}
+      .hero{grid-template-columns:1fr;gap:18px;padding:22px}
+      .hero-right{order:-1}
+      .brands{gap:14px;flex-wrap:wrap}
+      .features{flex-direction:column}
+      .pricing-grid{grid-template-columns:1fr}
+      .blog-grid{grid-template-columns:1fr}
+      .cta-banner{flex-direction:column;align-items:flex-start}
     }
   </style>
 </head>
 <body>
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Abiyyurasyiddhiya Ghulmy Pamungkas</h1>
-      <p>Mahasiswa Kecerdasan Buatan - IPB University</p>
-    </div>
-    <img src="foto_abiyyu.jpg" alt="Foto Abiyyurasyiddhiya">
-  </section>
+  <div class="wrap">
 
-  <!-- Biodata Card -->
-  <section class="cards">
-    <div class="card">
-      <h2>Biodata</h2>
-      <ul>
-        <li><strong>Nama Lengkap:</strong> Abiyyurasyiddhiya Ghulmy Pamungkas</li>
-        <li><strong>NIM:</strong> M0405241065</li>
-        <li><strong>Program Studi:</strong> Kecerdasan Buatan</li>
-        <li><strong>Proxy/Kelompok:</strong> Euclid</li>
-      </ul>
-    </div>
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero-left">
+        <h1>Your AI-Powered <span class="accent">Design Assistant</span></h1>
+        <p class="lead">Unlock your creative potential. Seamlessly generate, customize, and perfect your designs with cutting-edge AI technology. Fast prototypes, beautiful visuals — all in one place.</p>
 
-    <div class="card">
-      <h2>Kontak</h2>
-      <p>Hubungi saya melalui sosial media berikut:</p>
-      <div class="socials">
-        <a href="https://www.instagram.com/abiyyurasyd" target="_blank">Instagram</a>
-        <a href="https://www.linkedin.com/in/abiyyurasyiddhiya-ghulmy-pamungkas-694115324" target="_blank">LinkedIn</a>
+        <div class="cta-row">
+          <button class="btn" onclick="onGetStarted()">Get Started</button>
+          <button class="btn ghost" onclick="onTemplates()">More Templates</button>
+        </div>
+
+        <!-- FEATURES under hero -->
+        <div class="features" style="margin-top:20px">
+          <div class="feature">
+            <h3>Upload Brief</h3>
+            <p>Share project details — our AI will grasp your vision and start generating concepts.</p>
+          </div>
+          <div class="feature">
+            <h3>Generate Designs</h3>
+            <p>AI crafts multiple unique designs tailored to your brief and preferences.</p>
+          </div>
+          <div class="feature">
+            <h3>Refine Creation</h3>
+            <p>Polish chosen concepts with easy-to-use editing tools and fine controls.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <footer>
-    &copy; 2025 Abiyyurasyiddhiya Ghulmy Pamungkas | Mahasiswa Kecerdasan Buatan IPB University
-  </footer>
+      <div class="hero-right" aria-hidden="true">
+        <!-- Replace 'assets/swirl-blue.png' with your artwork -->
+        <div class="art" role="img" aria-label="Decorative swirl art"></div>
+      </div>
+    </section>
+
+    <!-- BRANDS -->
+    <div class="brands" aria-hidden="true" style="margin-top:18px">
+      <!-- Replace icons in assets/brands-*.png -->
+      <img src="assets/brand-1.png" alt="brand logo">
+      <img src="assets/brand-2.png" alt="brand logo">
+      <img src="assets/brand-3.png" alt="brand logo">
+      <img src="assets/brand-4.png" alt="brand logo">
+      <img src="assets/brand-5.png" alt="brand logo">
+    </div>
+
+    <!-- PRICING SECTION -->
+    <section class="section" aria-labelledby="pricing-title">
+      <h2 id="pricing-title">Affordable Plans for <span class="accent">Every Need</span></h2>
+
+      <div style="display:flex;align-items:center;gap:16px;justify-content:space-between;flex-wrap:wrap">
+        <p style="color:var(--muted);max-width:70ch;margin:8px 0 0 0">Choose the perfect plan for your design projects, from startups to enterprises. Toggle between monthly and yearly pricing.</p>
+
+        <div class="toggle" role="tablist" aria-label="Billing toggle">
+          <button id="monthlyBtn" class="active" onclick="setBilling('monthly')">Monthly</button>
+          <button id="yearlyBtn" onclick="setBilling('yearly')">Yearly</button>
+        </div>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="card">
+          <div>
+            <div style="color:var(--muted);font-weight:700">FREE</div>
+            <div class="price" id="price-free">$0<span style="font-size:13px;color:var(--muted)">/m</span></div>
+            <ul>
+              <li>Basic AI-generated designs</li>
+              <li>Access to customization tools</li>
+              <li>Standard templates library</li>
+              <li>5 projects per month</li>
+            </ul>
+          </div>
+          <div class="action"><button class="btn ghost">Get Started</button></div>
+        </div>
+
+        <div class="card featured" aria-label="Popular Plan">
+          <div>
+            <div style="color:var(--muted);font-weight:700">BASIC</div>
+            <div class="price" id="price-basic">$14.99<span style="font-size:13px;color:var(--muted)">/m</span></div>
+            <ul>
+              <li>Advanced AI-generated designs</li>
+              <li>Full access to customization</li>
+              <li>Premium templates library</li>
+              <li>Unlimited projects</li>
+              <li>Priority email support</li>
+            </ul>
+          </div>
+          <div class="action"><button class="btn">Get Started</button></div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div style="color:var(--muted);font-weight:700">PRO</div>
+            <div class="price" id="price-pro">$29.99<span style="font-size:13px;color:var(--muted)">/m</span></div>
+            <ul>
+              <li>All features included in Pro Plan</li>
+              <li>Dedicated account manager</li>
+              <li>Onboarding & training sessions</li>
+              <li>Advanced analytics & reporting</li>
+              <li>Secure cloud storage</li>
+            </ul>
+          </div>
+          <div class="action"><button class="btn ghost">Get Started</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG / INSIGHTS -->
+    <section class="section" aria-labelledby="insights-title">
+      <h2 id="insights-title">Stay Inspired with Our Latest <span class="accent">Insights</span></h2>
+      <p style="color:var(--muted);margin-top:8px;max-width:70ch">Dive into our blog for the latest trends, tips, and insights in design and AI. Articles crafted to keep you informed and inspired.</p>
+
+      <div class="blog-grid">
+        <article class="blog">
+          <div class="thumb" style="background-image:url('assets/blog-1.jpg')"></div>
+          <div class="body">
+            <div class="tag">Apr 8, 2022 • 6 min read</div>
+            <h4>Starting and Growing a Career in Web Design</h4>
+            <div class="meta">How to build skills & portfolio</div>
+          </div>
+        </article>
+
+        <article class="blog">
+          <div class="thumb" style="background-image:url('assets/blog-2.jpg')"></div>
+          <div class="body">
+            <div class="tag">Mar 15, 2022 • 5 min read</div>
+            <h4>Create a Landing Page That Performs Great</h4>
+            <div class="meta">Optimization tips from experts</div>
+          </div>
+        </article>
+
+        <article class="blog">
+          <div class="thumb" style="background-image:url('assets/blog-3.jpg')"></div>
+          <div class="body">
+            <div class="tag">Feb 28, 2022 • 7 min read</div>
+            <h4>How Can Designers Prepare for the Future?</h4>
+            <div class="meta">Trends and career guidance</div>
+          </div>
+        </article>
+      </div>
+
+      <div style="text-align:center;margin-top:18px">
+        <button class="btn ghost" onclick="onReadMore()">Read More</button>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" aria-label="Start your design">
+      <div class="cta-banner">
+        <div class="left">
+          <h3>Start Your Design <span class="accent">Journey Today</span></h3>
+          <p>Sign up now and experience the power of AI-driven design with zero commitment.</p>
+        </div>
+        <div class="right">
+          <button class="btn" onclick="onGetStarted()">Get Started</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> AI Design — Built with Blue. &nbsp;•&nbsp; Crafted for modern interfaces.
+    </footer>
+
+  </div>
+
+  <script>
+    // Basic interactive behavior: billing toggle switch (monthly/yearly)
+    const monthlyBtn = document.getElementById('monthlyBtn');
+    const yearlyBtn = document.getElementById('yearlyBtn');
+
+    function setBilling(mode){
+      if(mode === 'monthly'){
+        monthlyBtn.classList.add('active');
+        yearlyBtn.classList.remove('active');
+        document.getElementById('price-free').innerHTML = '$0<span style="font-size:13px;color:var(--muted)">/m</span>';
+        document.getElementById('price-basic').innerHTML = '$14.99<span style="font-size:13px;color:var(--muted)">/m</span>';
+        document.getElementById('price-pro').innerHTML = '$29.99<span style="font-size:13px;color:var(--muted)">/m</span>';
+      } else {
+        yearlyBtn.classList.add('active');
+        monthlyBtn.classList.remove('active');
+        // example yearly discount
+        document.getElementById('price-free').innerHTML = '$0<span style="font-size:13px;color:var(--muted)">/y</span>';
+        document.getElementById('price-basic').innerHTML = '$149.99<span style="font-size:13px;color:var(--muted)">/y</span>';
+        document.getElementById('price-pro').innerHTML = '$299.99<span style="font-size:13px;color:var(--muted)">/y</span>';
+      }
+    }
+
+    // small helpers
+    function onGetStarted(){ alert('Get Started clicked — link to sign-up page.'); }
+    function onTemplates(){ alert('More templates — navigate to templates.'); }
+    function onReadMore(){ alert('Navigate to blog list.'); }
+
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // initial billing
+    setBilling('monthly');
+  </script>
 </body>
 </html>
